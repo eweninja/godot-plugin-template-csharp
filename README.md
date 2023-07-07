@@ -11,6 +11,7 @@ If you want to use GDScript version of template go to [Godot Plugin Template in 
 3. Open Terminal or CMD and `cd` into addons directory, for example `cd C:\godot-projects\my-project-1`.
 4. Clone this repository: `git clone https://github.com/eweninja/godot-plugin-template-gdscript`.
 5. Rename directory as you want to.
+6. Change paths in main script file `GodotPluginTemplate.cs`.
 
 ## Creating plugins
 
@@ -19,4 +20,14 @@ Minimal requirement is to have two files in plugin folder:
 - config file `plugin.cfg`
 
 In config file you have to specify the name, description, author, version and base script.
-In the plugin scripts you have to add `[Tool]` keyword.
+In the plugin scripts you have to wrap class in:
+
+```cs
+#if TOOLS
+
+...
+
+#endif
+```
+
+and add `[Tool]` keyword.
